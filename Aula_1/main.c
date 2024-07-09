@@ -13,3 +13,4 @@ int main()
     printf("Milimetros %2.f\n", metros*1000);
     return 0;
 }
+// Programa simples, que pede para o usuário informar um número em M, e depois o programa converterá o número informado em decímetros, centímetros e milímetros
