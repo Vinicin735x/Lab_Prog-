@@ -31,3 +31,49 @@ int main()
     scanf("%d", somaid);
     return 0;
 }
+// Atividade 2
+
+int main()
+{
+    int cor[4], i, j;
+    srand(time(NULL));
+    for(j=0; j <20; j++){
+        
+    for(i=0; i<4; i++){
+        cor[i] = rand() % 9 + 1;
+    }
+    
+    if(((cor[0] == cor[2]) && ((cor[1] != cor[0] && cor[1]  != cor[3] &&
+    cor[2] != cor[1]) && cor[2] != cor[3]) && cor[1] != cor[3]) ||
+    ((cor[1] == cor[3]) && ((cor[1] != cor[0]) && cor[1] != cor[2]) &&
+    cor[3] != cor[0] && cor[3] != cor[2] && cor[0] != cor[2])){
+        printf("%d %d %d %d coral verdadeira\n", cor[0], cor[1], cor[2], cor[3]);
+    }else if((cor[0] == cor[3]) && (cor[0] != cor[1] && cor[0] != cor[2] &&
+              cor[3] != cor[1] && cor[3] != cor[2] && cor[1] != cor[2])){
+        printf("%d %d %d %d coral verdadeira\n", cor[0], cor[1], cor[2], cor[3]);
+    }else{
+        printf("%d %d %d %d coral falsa\n", cor[0], cor[1], cor[2], cor[3]);
+    }
+    }
+    return 0; 
+}
+// Atividade 3:
+
+int main()
+{
+    char frase[100], resposta[100] = " ";
+    int pos = 0;
+    printf("digite: ");
+    scanf("%s[^\n]s", &frase);
+    for(int i = 0; i < 100; i++){
+        if(frase[i] != 'p'){
+            resposta[pos] = frase[i];
+            pos++
+        }else if(((frase[i] == 'p') || frase[i] =='p') && (frase[i-1] =='p') && frase[i + 1] == 'p'){
+            resposta[pos] = frase[i];
+            pos++;
+        }
+    }
+    printf("%s", resposta);
+    return 0;
+}
