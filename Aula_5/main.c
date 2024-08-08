@@ -68,4 +68,59 @@ int main() {
 
     return 0;
 }
+// Terceiro exercício
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int main() {
+    int m[8][5], menorValor = 15, pMenorValor[8 * 5][2];
+    int k = 0; // Contador para a posição no vetor pMenorValor
+
+    srand(time(NULL));
+    
+    // Inicializar pMenorValor com -1
+    for (int i = 0; i < 8 * 5; i++) {
+        pMenorValor[i][0] = -1;
+        pMenorValor[i][1] = -1;
+    }
+
+    // Preencher a matriz e encontrar o menor valor
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 5; j++) {
+            m[i][j] = rand() % 15 + 1;
+            if (m[i][j] < menorValor) {
+                menorValor = m[i][j];
+                k = 0; // Reiniciar o contador
+                pMenorValor[k][0] = i;
+                pMenorValor[k][1] = j;
+                k++;
+            } else if (m[i][j] == menorValor) {
+                pMenorValor[k][0] = i;
+                pMenorValor[k][1] = j;
+                k++;
+            }
+        }
+    }
+
+    // Imprimir a matriz
+    printf("Matriz gerada:\n");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%2d ", m[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Imprimir o menor valor e suas posições
+    printf("\nMenor valor: %d\n", menorValor);
+    printf("Posições: ");
+    for (int i = 0; i < k; i++) {
+        if (pMenorValor[i][0] != -1) {
+            printf("(%d, %d) ", pMenorValor[i][0], pMenorValor[i][1]);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
