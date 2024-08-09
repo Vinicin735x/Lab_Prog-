@@ -124,3 +124,150 @@ int main() {
 
     return 0;
 }
+// Quarto exercício
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int m[9][8],i, j, somaI=0, numI=0;
+    srand(time(NULL));
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 8; j++) {
+            m[i][j] = rand() % 30 + 1;
+        }
+    }
+    
+    printf("Matriz gerada:\n");
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 8; j++) {
+            printf("%2d ", m[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 8; j++) {
+            if (m[i][j] % 2 != 0) {
+                somaI += m[i][j];
+                numI++;
+            }
+        }
+    }
+    float media = (float)somaI/ numI;
+    printf("\nMédia dos valores ímpares: %.2f\n", media);
+return 0;
+ }
+
+// Quinto exercício
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int A[6][8], B[8][7], C[6][7], i, j, k;
+    
+    srand(time(NULL));
+    
+    // Preenchendo a matriz A
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 8; j++) {
+            A[i][j] = rand() % 10 + 1;
+        }
+    }
+    
+    // Preenchendo a matriz B
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 7; j++) {
+            B[i][j] = rand() % 10 + 1;
+        }
+    }
+    
+    // Calculando a matriz C como o produto de A e B
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 7; j++) {
+            C[i][j] = 0;
+            for (k = 0; k < 8; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    
+    // Imprimindo a matriz A
+    printf("Matriz A:\n");
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 8; j++) {
+            printf("%2d ", A[i][j]);
+        }
+        printf("\n");
+    }
+    
+    // Imprimindo a matriz B
+    printf("\nMatriz B:\n");
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 7; j++) {
+            printf("%2d ", B[i][j]);
+        }
+        printf("\n");
+    }
+    
+    // Imprimindo a matriz C
+    printf("\nMatriz C:\n");
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 7; j++) {
+            printf("%4d ", C[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+// Sexto exercício
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int M[10][15], i, j, S[10][15], menor;
+    
+    srand(time(NULL));
+    
+    // Preenchendo a matriz M com valores aleatórios
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 15; j++) {
+            M[i][j] = rand() % 10 + 1;
+        }
+    }
+    
+    // Imprimindo a matriz M
+    printf("Matriz M:\n");
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 15; j++) {
+            printf("%2d ", M[i][j]);
+        }
+        printf("\n");
+    }
+    
+    // Calculando a matriz S
+    for (i = 0; i < 10; i++) {
+        menor = M[i][0];  // Inicializa o menor valor como o primeiro elemento da linha
+        for (j = 1; j < 15; j++) {
+            if (M[i][j] < menor) {
+                menor = M[i][j];
+            }
+        }
+        for (j = 0; j < 15; j++) {
+            S[i][j] = M[i][j] * menor;
+        }
+    }
+    
+    // Imprimindo a matriz S
+    printf("\nMatriz S:\n");
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 15; j++) {
+            printf("%2d ", S[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+
